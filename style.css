@@ -15,12 +15,13 @@
 header {
     background-color: #FFB933;
     align-items: center;
-    padding: 8px;
+    padding: 10px;
 }
 
 #shopIcon {
     width: 80px;
     height: 80px;
+    margin-right: 10px;
 }
 
 ul {
@@ -44,12 +45,12 @@ li a:hover:not(.active) {
 }
 
 #searchBar {
-    padding: 10px 40px 10px 10px;
     border-radius: 20px;
     border: 1px solid #ccc;
-    width: 300px;
+    width: 400px;
     background-color: white;
     padding: 5px;
+    margin-right: 20px;
 }
 
 #searchButton {
