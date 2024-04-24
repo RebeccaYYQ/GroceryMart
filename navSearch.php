@@ -16,14 +16,14 @@
 </html>
 
 <?php
-   $conn = mysqli_connect("localhost", "root", "", "assignment1");
+   $conn = mysqli_connect("localhost", "root", "", "progintas1");
    if (mysqli_connect_errno()) {
        echo "Failed to connect to MySQL: " . mysqli_connect_error();
        exit;
    }
    
 //put queries here
-   $query_string = "select * from products";
+   $query_string = "select * from as1db";
    
    $result = mysqli_query($conn, $query_string);
    $num_rows = mysqli_num_rows($result);

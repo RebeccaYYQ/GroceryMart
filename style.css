@@ -49,7 +49,7 @@ li a:hover:not(.active) {
     border: 1px solid #ccc;
     width: 400px;
     background-color: white;
-    padding: 5px;
+    padding: 5px 10px;
     margin-right: 20px;
 }
 
