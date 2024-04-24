@@ -22,32 +22,34 @@
         </div>
     </header>
     <?php require 'nav.php'; ?>
+
+
+    <main>
+        <?php
+        $conn = mysqli_connect("localhost", "root", "", "progintas1");
+        if (mysqli_connect_errno()) {
+            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+            exit;
+        }
+
+        $query_string = "select * from as1db";
+
+        $result = mysqli_query($conn, $query_string);
+        $num_rows = mysqli_num_rows($result);
+        if ($num_rows > 0) {
+            print "<table border='0'>";
+            while ($a_row = mysqli_fetch_row($result)) {
+                print "<tr>\n";
+                foreach ($a_row as $field)
+                    print "\t<td>$field</td>\n";
+                print "</tr>";
+            }
+            print "</table>";
+        }
+
+        mysqli_close($conn);
+        ?>
+    </main>
 </body>
 
 </html>
-
-<?php
-$conn = mysqli_connect("localhost", "root", "", "progintas1");
-if (mysqli_connect_errno()) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-    exit;
-}
-
-//put queries here
-$query_string = "select * from as1db";
-
-$result = mysqli_query($conn, $query_string);
-$num_rows = mysqli_num_rows($result);
-if ($num_rows > 0) {
-    print "<table border='0'>";
-    while ($a_row = mysqli_fetch_row($result)) {
-        print "<tr>\n";
-        foreach ($a_row as $field)
-            print "\t<td>$field</td>\n";
-        print "</tr>";
-    }
-    print "</table>";
-}
-
-mysqli_close($conn);
-?>

@@ -24,10 +24,85 @@
     <?php require 'nav.php'; ?>
 
     <main>
-        <section>
-            <h2>Home</h2>
+        <h2>Home</h2>
+
+        <section class="itemGrid flex">
+            <div class="productItem flex">
+                <img src="images/shopIcon.png" class="productItemImage">
+                <p class="productItemContent"><b>Product Name</b><br>
+                    Price per unit <br>
+                    Stock:</p>
+                <form method="post" action="process.php">
+                    <button class="quantity-btn" type="button" name="decrease">-</button>
+                    <input type="number" class="quantity-field" name="quantity" value="1">
+                    <button class="quantity-btn" type="button" name="increase">+</button>
+                    <button class="submit-btn" type="submit" name="submit">Submit</button>
+                </form>
+            </div>
+            <div class="productItem flex">
+                <img src="images/shopIcon.png" class="productItemImage">
+                <p class="productItemContent"><b>Product Name</b><br>
+                    Price per unit <br>
+                    Stock:</p>
+                <form method="post" action="process.php">
+                    <button class="quantity-btn" type="button" name="decrease">-</button>
+                    <input type="number" class="quantity-field" name="quantity" value="1">
+                    <button class="quantity-btn" type="button" name="increase">+</button>
+                    <button class="submit-btn" type="submit" name="submit">Submit</button>
+                </form>
+            </div>
+            <div class="productItem flex">
+                <img src="images/shopIcon.png" class="productItemImage">
+                <p class="productItemContent"><b>Product Name</b><br>
+                    Price per unit <br>
+                    Stock:</p>
+                <form method="post" action="process.php">
+                    <button class="quantity-btn" type="button" name="decrease">-</button>
+                    <input type="number" class="quantity-field" name="quantity" value="1">
+                    <button class="quantity-btn" type="button" name="increase">+</button>
+                    <button class="submit-btn" type="submit" name="submit">Submit</button>
+                </form>
+            </div>
+            <div class="productItem flex">
+                <img src="images/shopIcon.png" class="productItemImage">
+                <p class="productItemContent"><b>Product Name</b><br>
+                    Price per unit <br>
+                    Stock:</p>
+                <form method="post" action="process.php">
+                    <button class="quantity-btn" type="button" name="decrease">-</button>
+                    <input type="number" class="quantity-field" name="quantity" value="1">
+                    <button class="quantity-btn" type="button" name="increase">+</button>
+                    <button class="submit-btn" type="submit" name="submit">Submit</button>
+                </form>
+            </div>
+            <div class="productItem flex">
+                <img src="images/shopIcon.png" class="productItemImage">
+                <p class="productItemContent"><b>Product Name</b><br>
+                    Price per unit <br>
+                    Stock:</p>
+                <form method="post" action="process.php">
+                    <button class="quantity-btn" type="button" name="decrease">-</button>
+                    <input type="number" class="quantity-field" name="quantity" value="1">
+                    <button class="quantity-btn" type="button" name="increase">+</button>
+                    <button class="submit-btn" type="submit" name="submit">Submit</button>
+                </form>
+            </div>
+            <div class="productItem flex">
+                <img src="images/shopIcon.png" class="productItemImage">
+                <p class="productItemContent"><b>Product Name</b><br>
+                    Price per unit <br>
+                    Stock:</p>
+                <form method="post" action="process.php">
+                    <button class="quantity-btn" type="button" name="decrease">-</button>
+                    <input type="number" class="quantity-field" name="quantity" value="1">
+                    <button class="quantity-btn" type="button" name="increase">+</button>
+                    <button class="submit-btn" type="submit" name="submit">Submit</button>
+                </form>
+            </div>
         </section>
     </main>
+
+
 </body>
 
 </html>
