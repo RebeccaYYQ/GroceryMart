@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" type="text/css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="script.js"></script>
     <title>Grocery Mart</title>
 </head>
 
@@ -25,30 +26,39 @@
 
 
     <main>
-        <?php
-        $conn = mysqli_connect("localhost", "root", "", "progintas1");
-        if (mysqli_connect_errno()) {
-            echo "Failed to connect to MySQL: " . mysqli_connect_error();
-            exit;
-        }
+        <h2>Frozen</h2>
 
-        $query_string = "select * from as1db";
-
-        $result = mysqli_query($conn, $query_string);
-        $num_rows = mysqli_num_rows($result);
-        if ($num_rows > 0) {
-            print "<table border='0'>";
-            while ($a_row = mysqli_fetch_row($result)) {
-                print "<tr>\n";
-                foreach ($a_row as $field)
-                    print "\t<td>$field</td>\n";
-                print "</tr>";
+        <section class="itemGrid flex">
+            <?php
+            $conn = mysqli_connect("localhost", "root", "", "progintas1");
+            if (mysqli_connect_errno()) {
+                echo "Failed to connect to MySQL: " . mysqli_connect_error();
+                exit;
             }
-            print "</table>";
-        }
 
-        mysqli_close($conn);
-        ?>
+            $query_string = "select * from as1db where product_category = 'Frozen'";
+
+            $result = mysqli_query($conn, $query_string);
+            $num_rows = mysqli_num_rows($result);
+            if (mysqli_num_rows($result) > 0) {
+                // output data of each row
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<div class='productItem flex'>
+                            <img src='images/shopIcon.png' class='productItemImage'>
+                            <p class='productItemContent'><b>{$row['product_name']}</b><br>
+                            \${$row['unit_price']} per {$row['unit_quantity']} <br>
+                            Stock: {$row['in_stock']}</p>
+                            <div class='flex'>
+                                <button class='quantityBtn' type='button' onClick='itemGridCart(\"minus\", \"{$row['product_id']}\")'>-</button>
+                                <p class='quantityField' id='{$row['product_id']}Quantity'>0</p>
+                                <button class='quantityBtn' type='button' onClick='itemGridCart(\"plus\", \"{$row['product_id']}\")'>+</button>
+                            </div>
+                        </div>";
+                }
+            }
+            mysqli_close($conn);
+            ?>
+        </section>
     </main>
 </body>
 
