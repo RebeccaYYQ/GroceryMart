@@ -102,7 +102,7 @@ li {
     align-items: center;
     border-radius: 20px;
     border: 1px solid #ccc;
-    max-width: 250px;
+    width: 200px;
     padding: 15px;
     margin: 10px;
 }
@@ -115,31 +115,19 @@ li {
     align-self: flex-start;
 }
 
-.quantity-btn {
+.quantityBtn {
     padding: 5px 10px;
     font-size: 16px;
     cursor: pointer;
+    width: 35px;
 }
 
-.quantity-field {
+.quantityField {
     width: 50px;
     padding: 5px;
     text-align: center;
     font-size: 16px;
-}
-
-.submit-btn {
-    padding: 5px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.submit-btn:hover {
-    background-color: #0056b3;
+    margin: 0px;
 }
 
 /* misc design */
