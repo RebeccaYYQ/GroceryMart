@@ -17,7 +17,7 @@
                         <button type="submit" name="category" class="navButton" value="Fresh">Fresh</button>
                         <div class="dropdownContent">
                             <button type="submit" name="subCategory" class="navSubButton" value="Fruit">Fruit</button>
-                            <button type="submit" name="subCategory" class="navSubButton" value="Vegetables">Vegetables</button>
+                            <button type="submit" name="subCategory" class="navSubButton" value="Vegetable">Vegetable</button>
                         </div>
                     </div>
                 </li>

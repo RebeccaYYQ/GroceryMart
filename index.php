@@ -32,21 +32,24 @@
             exit;
         }
 
-        //if category is set, then use it. Else use home (i.e. when page first opens)
-        $category = isset($_POST['category']) ? $_POST['category'] : 'Home';
-        
-        //if its home, show all
-        if ($category == "Home") {
-            $query_string = "select * from as1db";
-        } else {
+        //if category is set, then use it. Else if subCategory is set, use that. Else use home (i.e. when page first opens)
+        if (isset($_POST['category']) && $_POST['category'] != 'Home') {
+            $category = $_POST['category'];
             $query_string = "select * from as1db where product_category = '$category'";
+        } else if (isset($_POST['subCategory'])) {
+            $subCategory = $_POST['subCategory'];
+            $query_string = "select * from as1db where product_subcategory = '$subCategory'";
+        } else {
+            $category = 'Home';
+            $query_string = "select * from as1db";
         }
 
-
         //set the page title
-        echo "<h2>$category</h2>
+        $title = isset($category) ? $category : $subCategory;
+        echo "<h2>$title</h2>
                 <section class='itemGrid flex'>";
 
+        //show the DB results
         $result = mysqli_query($conn, $query_string);
         $num_rows = mysqli_num_rows($result);
         if (mysqli_num_rows($result) > 0) {
