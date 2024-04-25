@@ -1,6 +1,5 @@
 <header>
     <nav>
-
         <form action="index.php" method="POST">
             <ul class="flex">
                 <li><button type="submit" name="category" class="navButton" value="Home">Home</button></li>
@@ -8,8 +7,8 @@
                     <div class="dropdown flex">
                         <button type="submit" name="category" class="navButton" value="Frozen">Frozen</button>
                         <div class="dropdownContent">
-                            <a href="#">Frozen Meat</a>
-                            <a href="#">Ice Cream</a>
+                            <button type="submit" name="subCategory" class="navSubButton" value="Frozen Meat">Frozen Meat</button>
+                            <button type="submit" name="subCategory" class="navSubButton" value="Ice Cream">Ice Cream</button>
                         </div>
                     </div>
                 </li>
@@ -17,8 +16,8 @@
                     <div class="dropdown flex">
                         <button type="submit" name="category" class="navButton" value="Fresh">Fresh</button>
                         <div class="dropdownContent">
-                            <a href="#">Fruit</a>
-                            <a href="#">Vegetables</a>
+                            <button type="submit" name="subCategory" class="navSubButton" value="Fruit">Fruit</button>
+                            <button type="submit" name="subCategory" class="navSubButton" value="Vegetables">Vegetables</button>
                         </div>
                     </div>
                 </li>
@@ -26,9 +25,9 @@
                     <div class="dropdown flex">
                         <button type="submit" name="category" class="navButton" value="Beverages">Beverages</button>
                         <div class="dropdownContent">
-                            <a href="#">Coffee</a>
-                            <a href="#">Juice</a>
-                            <a href="#">Tea</a>
+                            <button type="submit" name="subCategory" class="navSubButton" value="Coffee">Coffee</button>
+                            <button type="submit" name="subCategory" class="navSubButton" value="Juice">Juice</button>
+                            <button type="submit" name="subCategory" class="navSubButton" value="Tea">Tea</button>
                         </div>
                     </div>
                 </li>
@@ -36,8 +35,8 @@
                     <div class="dropdown flex">
                         <button type="submit" name="category" class="navButton" value="Household">Household</button>
                         <div class="dropdownContent">
-                            <a href="#">Cleaning</a>
-                            <a href="#">Medicine</a>
+                            <button type="submit" name="subCategory" class="navSubButton" value="Cleaning">Cleaning</button>
+                            <button type="submit" name="subCategory" class="navSubButton" value="Medicine">Medicine</button>
                         </div>
                     </div>
                 </li>
@@ -45,29 +44,13 @@
                     <div class="dropdown flex">
                         <button type="submit" name="category" class="navButton" value="Pet Food">Pet Food</button>
                         <div class="dropdownContent">
-                            <a href="#">Cat</a>
-                            <a href="#">Dog</a>
-                            <a href="#">Small Animals</a>
+                            <button type="submit" name="subCategory" class="navSubButton" value="Cat">Cat</button>
+                            <button type="submit" name="subCategory" class="navSubButton" value="Dog">Dog</button>
+                            <button type="submit" name="subCategory" class="navSubButton" value="Small Animals">Small Animals</button>
                         </div>
                     </div>
                 </li>
-
-
             </ul>
-            <!-- <ul class="flex">
-                <select name="sDegree">
-                    <option>Bachelor</option>
-                    <option>Masters</option>
-                    <option>PhD</option>
-                </select>
-
-
-                <li><a href="index.php" class="navLink">Home</a></li>
-                <li><a href="navSearch.php" class="navLink" name="Frozen">Frozen</a></li>
-                <li><a href="navSearch.php" class="navLink" name="Fresh">Fresh</a></li>
-                <li><a href="navSearch.php" class="navLink" name="Beverages">Beverages</a></li>
-                <li><a href="navSearch.php" class="navLink" name="Pet Food">Pet Food</a></li>
-            </ul> -->
         </form>
     </nav>
 </header>
