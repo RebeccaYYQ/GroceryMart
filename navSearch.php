@@ -36,7 +36,7 @@
                 exit;
             }
 
-            $query_string = "select * from as1db where product_category = 'Frozen'";
+            $query_string = "select * from as1db";
 
             $result = mysqli_query($conn, $query_string);
             $num_rows = mysqli_num_rows($result);
@@ -44,7 +44,7 @@
                 // output data of each row
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<div class='productItem flex'>
-                            <img src='images/shopIcon.png' class='productItemImage'>
+                            <img src='images/{$row['product_id']}.jpg' class='productItemImage'>
                             <p class='productItemContent'><b>{$row['product_name']}</b><br>
                             \${$row['unit_price']} per {$row['unit_quantity']} <br>
                             Stock: {$row['in_stock']}</p>
@@ -54,6 +54,7 @@
                                 <button class='quantityBtn' type='button' onClick='itemGridCart(\"plus\", \"{$row['product_id']}\")'>+</button>
                             </div>
                         </div>";
+                        //echo "<pre>" . print_r($row, true) . "</pre>";
                 }
             }
             mysqli_close($conn);
