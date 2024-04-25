@@ -1,6 +1,6 @@
 // if the user clicks on the +/- buttons, change the number shown. Does not allow numbers below 0
-function itemGridCart(operator) {
-    var quantity = document.getElementById('1001Quantity');
+function itemGridCart(operator, productId) {
+    var quantity = document.getElementById(`${productId}Quantity`);
     var quantityInt = Number(quantity.textContent);
     if(operator == "plus") {
         quantityInt++;

@@ -34,9 +34,20 @@
                     Price per unit <br>
                     Stock:</p>
                 <div class="flex">
-                    <button class="quantityBtn" type="button" onClick="itemGridCart('minus')">-</button>
+                    <button class="quantityBtn" type="button" onClick="itemGridCart('minus', '1001')">-</button>
                     <p class="quantityField" id="1001Quantity">0</p>
-                    <button class="quantityBtn" type="button" onClick="itemGridCart('plus')">+</button>
+                    <button class="quantityBtn" type="button" onClick="itemGridCart('plus', '1001')">+</button>
+                </div>
+            </div>
+            <div class="productItem flex">
+                <img src="images/shopIcon.png" class="productItemImage">
+                <p class="productItemContent"><b>Product Name</b><br>
+                    Price per unit <br>
+                    Stock:</p>
+                <div class="flex">
+                    <button class="quantityBtn" type="button" onClick="itemGridCart('minus', '1002')">-</button>
+                    <p class="quantityField" id="1002Quantity">0</p>
+                    <button class="quantityBtn" type="button" onClick="itemGridCart('plus', '1002')">+</button>
                 </div>
             </div>
 
