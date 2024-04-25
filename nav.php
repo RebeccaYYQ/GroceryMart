@@ -1,7 +1,7 @@
 <header>
     <nav>
        
-        <form action="navSearch.php" method="POST">
+        <form action="index.php" method="POST">
             <button type="submit" name="category" value="Home">Home</button>    
             <button type="submit" name="category" value="Frozen">Frozen</button>
             <button type="submit" name="category" value="Fresh">Fresh</button>
