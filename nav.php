@@ -1,13 +1,59 @@
 <header>
     <nav>
-       
+
         <form action="index.php" method="POST">
-            <button type="submit" name="category" value="Home">Home</button>    
-            <button type="submit" name="category" value="Frozen">Frozen</button>
-            <button type="submit" name="category" value="Fresh">Fresh</button>
-            <button type="submit" name="category" value="Beverages">Beverages</button>
-            <button type="submit" name="category" value="Household">Household</button>
-            <button type="submit" name="category" value="Pet Food">Pet Food</button>
+            <ul class="flex">
+                <li><button type="submit" name="category" class="navButton" value="Home">Home</button></li>
+                <li>
+                    <div class="dropdown flex">
+                        <button type="submit" name="category" class="navButton" value="Frozen">Frozen</button>
+                        <div class="dropdownContent">
+                            <a href="#">Frozen Meat</a>
+                            <a href="#">Ice Cream</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown flex">
+                        <button type="submit" name="category" class="navButton" value="Fresh">Fresh</button>
+                        <div class="dropdownContent">
+                            <a href="#">Fruit</a>
+                            <a href="#">Vegetables</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown flex">
+                        <button type="submit" name="category" class="navButton" value="Beverages">Beverages</button>
+                        <div class="dropdownContent">
+                            <a href="#">Coffee</a>
+                            <a href="#">Juice</a>
+                            <a href="#">Tea</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown flex">
+                        <button type="submit" name="category" class="navButton" value="Household">Household</button>
+                        <div class="dropdownContent">
+                            <a href="#">Cleaning</a>
+                            <a href="#">Medicine</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown flex">
+                        <button type="submit" name="category" class="navButton" value="Pet Food">Pet Food</button>
+                        <div class="dropdownContent">
+                            <a href="#">Cat</a>
+                            <a href="#">Dog</a>
+                            <a href="#">Small Animals</a>
+                        </div>
+                    </div>
+                </li>
+
+
+            </ul>
             <!-- <ul class="flex">
                 <select name="sDegree">
                     <option>Bachelor</option>
