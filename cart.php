@@ -39,7 +39,6 @@
             //if value is greater than 0, save it to the list
             value > 0 ? cartProductIds.push(key) : value;
         };
-        console.log(cartProductIds.toString());
 
         // Send value to server using AJAX
         var xhr = new XMLHttpRequest();
@@ -53,8 +52,14 @@
                 // Updating page content
                 console.log(xhr.responseText);
                 document.getElementById("cartGridDisplay").innerHTML = xhr.responseText;
+
+                //updating the quantity field with values from localStorage.
+                for (var productId of cartProductIds) {
+                    var itemQuantity = localStorage.getItem(productId);
+                    document.getElementById(productId + 'Quantity').textContent = itemQuantity;
+                };
             }
-        };
+        }
     </script>
 
     <main>
@@ -62,6 +67,14 @@
         <section class='itemGrid flex' id="cartGridDisplay">
 
         </section>
+
+        <script>
+            //updating the quantity field with values from localStorage.
+            for (productId in cartProductIds) {
+                var itemQuantity = localStorage.getItem(productId);
+                document.getElementById(productId + 'Quantity').textContent = itemQuantity;
+            };
+        </script>
     </main>
 </body>
 
