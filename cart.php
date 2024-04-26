@@ -64,17 +64,19 @@
 
     <main>
         <h2>Shopping Cart</h2>
-        <section class='itemGrid flex' id="cartGridDisplay">
 
+        <section class="flex cartPage">
+            <!-- grid of items, which will be updated by the script above -->
+            <div class='itemGrid flex' id="cartGridDisplay"></div>
+            <!-- total display plus the order/clear buttons -->
+            <div id="cartTotal">
+                <p><b>Total:</b> $</p>
+                <input type="button" value="Clear Cart" onclick="clearCart()"></button><input type="button" value="Submit Order"></button>
+            </div>
         </section>
 
-        <script>
-            //updating the quantity field with values from localStorage.
-            for (productId in cartProductIds) {
-                var itemQuantity = localStorage.getItem(productId);
-                document.getElementById(productId + 'Quantity').textContent = itemQuantity;
-            };
-        </script>
+
+
     </main>
 </body>
 

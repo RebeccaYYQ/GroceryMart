@@ -30,3 +30,9 @@ function updateCartQuantity() {
     }
     document.getElementById("cartQuantity").textContent = sum;
 }
+
+//clear the local storage (i.e. cart) and refresh the page
+function clearCart() {
+    localStorage.clear();
+    location.reload();
+}

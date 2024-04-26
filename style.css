@@ -156,6 +156,17 @@ ul {
     margin: 0px;
 }
 
+/* Shopping cart page */
+.cartPage {
+    justify-content: space-between;
+}
+
+#cartTotal {
+    background-color: #BDC3C7;
+    width: 300px;
+    padding: 0px 16px;
+}
+
 /* misc design */
 main {
     padding: 0px 10px;
