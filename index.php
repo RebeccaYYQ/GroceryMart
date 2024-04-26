@@ -21,7 +21,7 @@
             </form>
             <a href="cart.php" class="flex">
                 <span class="material-symbols-outlined md-60">shopping_cart</span>
-                <span id="cartAmount">0</span>
+                <span id="cartQuantity">0</span>
             </a>
         </div>
     </header>
@@ -47,10 +47,12 @@
             $query_string = "select * from as1db";
         }
 
-        //set the page title
+        //set the page title and cart quantity
         $title = isset($category) ? $category : $subCategory;
         echo "<h2>$title</h2>
                 <section class='itemGrid flex'>";
+            
+        echo "<script>updateCartQuantity();</script>";
 
         //show the DB results
         $result = mysqli_query($conn, $query_string);

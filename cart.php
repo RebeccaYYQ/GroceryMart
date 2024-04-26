@@ -21,7 +21,7 @@
             </form>
             <a href="cart.php" class="flex">
                 <span class="material-symbols-outlined md-60">shopping_cart</span>
-                <span id="cartAmount">0</span>
+                <span id="cartQuantity">0</span>
             </a>
         </div>
     </header>
