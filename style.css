@@ -164,7 +164,8 @@ ul {
 #cartTotal {
     background-color: #BDC3C7;
     width: 300px;
-    padding: 0px 16px;
+    padding: 0px 16px 16px;
+    
 }
 
 /* misc design */

@@ -6,6 +6,13 @@ if (mysqli_connect_errno()) {
 }
 
 $cartProductIds = $_POST["cartProductIds"];
+
+//if the cart is empty, display message and stop the rest of the PHP
+if (empty($cartProductIds)) {
+    echo "<p>Your cart is empty.</p>";
+    exit();
+}
+
 $query_string = "select * from as1db where product_id in ($cartProductIds)";
 
 //show the DB results
@@ -27,4 +34,5 @@ if (mysqli_num_rows($result) > 0) {
                     </div>";
     }
 }
+
 mysqli_close($conn);
