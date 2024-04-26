@@ -24,7 +24,7 @@ if (mysqli_num_rows($result) > 0) {
         echo "<div class='productItem flex'>
                         <img src='images/{$row['product_id']}.jpg' class='productItemImage'>
                         <p class='productItemContent'><b>{$row['product_name']}</b><br>
-                        \${$row['unit_price']} per {$row['unit_quantity']} <br>
+                        <span id='{$row['product_id']}Price'>\${$row['unit_price']}</span> per {$row['unit_quantity']} <br>
                         Stock: {$row['in_stock']}</p>
                         <div class='flex'>
                             <button class='quantityBtn' type='button' onClick='itemGridCart(\"minus\", \"{$row['product_id']}\")'>-</button>

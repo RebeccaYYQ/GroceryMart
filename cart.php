@@ -31,6 +31,8 @@
 
         // Retrieve the customer's cart productIds from localStorage
         var cartProductIds = [];
+        //Variable to store each item's price
+        var cartProductPrice = [];
 
         for (let i = 0; i < localStorage.length; i++) {
             key = localStorage.key(i);
@@ -50,7 +52,7 @@
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 // Updating page content
-                console.log(xhr.responseText);
+                //console.log(xhr.responseText);
                 document.getElementById("cartGridDisplay").innerHTML = xhr.responseText;
 
                 //updating the quantity field with values from localStorage.
@@ -58,7 +60,30 @@
                     var itemQuantity = localStorage.getItem(productId);
                     document.getElementById(productId + 'Quantity').textContent = itemQuantity;
                 };
+
+                var price;
+                //retrieving the price of each item and placing it in an array
+                for (var i = 0; i < cartProductIds.length; i++) {
+                    //get that element that corresponds to that id
+                    price = document.getElementById(`${cartProductIds[i]}Price`).textContent;
+                    //remove the $ symbol and save it as a number
+                    cartProductPrice.push(Number(price.substring(1)));
+                }
+
+                calculateTotal();
             }
+        }
+
+        //calculate the total for the cart
+        function calculateTotal() {
+            var itemQuantity, sum = 0;
+            //for every item in cartProductIds, get the quantity associated and multiply that with the price. Then add to sum
+            for (var i = 0; i < cartProductIds.length; i++) {
+                itemQuantity = localStorage.getItem(cartProductIds[i]);
+                sum += cartProductPrice[i] * itemQuantity;
+                //console.log("id: " + cartProductIds[i] + " cartProductPrice: " + cartProductPrice[i] + " itemQuantity: " + itemQuantity + " sum: " + sum.toFixed(2));
+            }
+            document.getElementById('totalValue').textContent = sum.toFixed(2);
         }
     </script>
 
@@ -70,7 +95,7 @@
             <div class='itemGrid flex' id="cartGridDisplay"></div>
             <!-- total display plus the order/clear buttons -->
             <div id="cartTotal">
-                <p><b>Total:</b> $</p>
+                <p><b>Total:</b> $<span id="totalValue">0</span></p>
                 <input type="button" value="Clear Cart" onclick="clearCart()"></button><input type="button" value="Submit Order"></button>
             </div>
         </section>
