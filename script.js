@@ -12,4 +12,7 @@ function itemGridCart(operator, productId) {
         quantityInt--;
     }
     quantity.textContent = quantityInt;
+
+    //add to local storage
+    localStorage.setItem(productId, quantityInt);
 }

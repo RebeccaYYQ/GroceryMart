@@ -69,6 +69,14 @@
                             <button class='quantityBtn' type='button' onClick='itemGridCart(\"plus\", \"{$row['product_id']}\")'>+</button>
                         </div>
                     </div>";
+
+                //updating the quantity field with values from localStorage. If null, set it to 0
+                echo "<script>
+                    var itemQuantity = localStorage.getItem('{$row['product_id']}');
+                    itemQuantity == null ? itemQuantity = '0' : itemQuantity;
+                
+                    document.getElementById('{$row['product_id']}Quantity').textContent = itemQuantity;
+                </script>";
             }
         }
         mysqli_close($conn);
