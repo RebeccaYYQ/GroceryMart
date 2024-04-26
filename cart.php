@@ -11,26 +11,58 @@
 </head>
 
 <body>
+
     <header class="flex">
-        <img id="shopIcon" src="images/shopIcon.png">
-        <h1>Grocery Mart</h1>
+        <a href="index.php" class="flex"><img id="shopIcon" src="images/shopIcon.png">
+            <h1>Grocery Mart</h1>
+        </a>
         <div class="align-right flex">
-            <form method="POST" action="search.php" class="flex" id="searchBar">
-                <input type="text" id="search" name="query" placeholder="Search items" size="47">
-                <button id="searchButton" type="submit" class="align-right"><span class="material-symbols-outlined">search</span></button>
-            </form>
             <a href="cart.php" class="flex">
                 <span class="material-symbols-outlined md-60">shopping_cart</span>
                 <span id="cartQuantity">0</span>
             </a>
         </div>
     </header>
-    <?php require 'nav.php'; ?>
+
+    <!-- update the cart, make an AJAX query to send localStorage items to PHP so that items can be shown -->
+    <script>
+        //update the Cart quantity number
+        updateCartQuantity();
+
+        // Retrieve the customer's cart productIds from localStorage
+        var cartProductIds = [];
+
+        for (let i = 0; i < localStorage.length; i++) {
+            key = localStorage.key(i);
+            value = Number(localStorage.getItem(key));
+
+            //if value is greater than 0, save it to the list
+            value > 0 ? cartProductIds.push(key) : value;
+        };
+        console.log(cartProductIds.toString());
+
+        // Send value to server using AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "cartDisplay.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send("cartProductIds=" + cartProductIds);
+
+        // AJAX request completed successfully
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Updating page content
+                console.log(xhr.responseText);
+                document.getElementById("cartGridDisplay").innerHTML = xhr.responseText;
+            }
+        };
+    </script>
 
     <main>
-        
-    </main>
+        <h2>Shopping Cart</h2>
+        <section class='itemGrid flex' id="cartGridDisplay">
 
+        </section>
+    </main>
 </body>
 
 </html>

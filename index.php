@@ -12,8 +12,9 @@
 
 <body>
     <header class="flex">
-        <img id="shopIcon" src="images/shopIcon.png">
-        <h1>Grocery Mart</h1>
+        <a href="index.php" class="flex"><img id="shopIcon" src="images/shopIcon.png">
+            <h1>Grocery Mart</h1>
+        </a>
         <div class="align-right flex">
             <form method="POST" action="search.php" class="flex" id="searchBar">
                 <input type="text" id="search" name="query" placeholder="Search items" size="47">
@@ -51,7 +52,7 @@
         $title = isset($category) ? $category : $subCategory;
         echo "<h2>$title</h2>
                 <section class='itemGrid flex'>";
-            
+
         echo "<script>updateCartQuantity();</script>";
 
         //show the DB results
