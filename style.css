@@ -162,10 +162,29 @@ ul {
 }
 
 #cartTotal {
-    background-color: #BDC3C7;
+    background-color: #d3d3d3;
     width: 300px;
-    padding: 0px 16px 16px;
-    
+    padding: 5px 16px 16px;
+    min-height: 310px;
+}
+
+.cartButtons {
+    margin: 10px;
+    margin-top: 30px;
+    padding: 12px 16px;
+    width: 125px;
+    cursor: pointer;
+}
+
+.orderBtn {
+    background-color: #ACAF48;
+    border: solid;
+    border-color: white;
+    border-width: 1px;
+}
+
+.orderBtn:hover {
+    background-color: #9b9e43;
 }
 
 /* misc design */

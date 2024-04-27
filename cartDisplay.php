@@ -27,9 +27,9 @@ if (mysqli_num_rows($result) > 0) {
                         <span id='{$row['product_id']}Price'>\${$row['unit_price']}</span> per {$row['unit_quantity']} <br>
                         Stock: {$row['in_stock']}</p>
                         <div class='flex'>
-                            <button class='quantityBtn' type='button' onClick='itemGridCart(\"minus\", \"{$row['product_id']}\")'>-</button>
+                            <button class='quantityBtn' type='button' onClick='itemGridCart(\"minus\", \"{$row['product_id']}\"); calculateTotal()'>-</button>
                             <p class='quantityField' id='{$row['product_id']}Quantity'>0</p>
-                            <button class='quantityBtn' type='button' onClick='itemGridCart(\"plus\", \"{$row['product_id']}\")'>+</button>
+                            <button class='quantityBtn' type='button' onClick='itemGridCart(\"plus\", \"{$row['product_id']}\"); calculateTotal()'>+</button>
                         </div>
                     </div>";
     }
