@@ -18,6 +18,11 @@ function itemGridCart(operator, productId) {
     localStorage.setItem(productId, quantityInt);
 
     updateCartQuantity();
+
+    //if the page is the shopping cart and quantity is now 0, refresh the page
+    if (location.pathname == "/ProgIntAs1/cart.php" && quantityInt == 0) {
+        location.reload();
+    }
 };
 
 //iterate through local storage. Sum up all the items the user has in their cart. Display it.

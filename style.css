@@ -176,15 +176,20 @@ ul {
     cursor: pointer;
 }
 
-.orderBtn {
+#orderBtn {
     background-color: #ACAF48;
     border: solid;
     border-color: white;
     border-width: 1px;
 }
 
-.orderBtn:hover {
+#orderBtn:hover {
     background-color: #9b9e43;
+}
+
+#orderBtn:disabled {
+    cursor: default;
+    background-color: #BDC3C7;
 }
 
 /* misc design */

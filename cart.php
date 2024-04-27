@@ -34,6 +34,7 @@
         //Variable to store each item's price
         var cartProductPrice = [];
 
+        //retrieve data from localStorage 
         for (let i = 0; i < localStorage.length; i++) {
             key = localStorage.key(i);
             value = Number(localStorage.getItem(key));
@@ -71,6 +72,9 @@
                 }
 
                 calculateTotal();
+
+                //if the cart is empty, disable the submit button
+                cartProductIds.length == 0 ? document.getElementById("orderBtn").disabled = true : cartProductIds;
             }
         }
 
@@ -96,7 +100,7 @@
             <!-- total display plus the order/clear buttons -->
             <div id="cartTotal">
                 <p><b>Total:</b> $<span id="totalValue">0</span></p>
-                <input type="button" value="Clear Cart" onclick="clearCart()" class="cartButtons"></button><input type="button" value="Submit Order" class="cartButtons orderBtn"></button>
+                <input type="button" value="Clear Cart" onclick="clearCart()" class="cartButtons"></button><input type="button" value="Submit Order" class="cartButtons" id="orderBtn"></button>
             </div>
         </section>
 
