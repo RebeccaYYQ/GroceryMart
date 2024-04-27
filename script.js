@@ -39,7 +39,10 @@ function updateCartQuantity() {
 //clear the local storage (i.e. cart) and refresh the page
 function clearCart() {
     localStorage.clear();
-    location.reload();
+    //if the page is the shopping cart refresh the page
+    if (location.pathname == "/ProgIntAs1/cart.php") {
+        location.reload();
+    }
 }
 
 //validate the email to also have a . in it

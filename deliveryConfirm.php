@@ -81,12 +81,17 @@
         <p>Your order details are:</p>";
         echo $receiptString;
 
+        // //update DB to reflect user's order
+        for ($i = 0; $i < count($idArray); $i++) {
+            $query_string = "UPDATE as1db SET in_stock = in_stock - $quantArray[$i] WHERE product_id = $idArray[$i]";
+            mysqli_query($conn, $query_string);
+        }
+
         mysqli_close($conn);
+
+        // clear the cart after ordering
+        echo "<script>clearCart();</script>";
         ?>
-
-        <!-- clear the cart after ordering -->
-        <!-- <script>clearCart();</script> -->
-
     </main>
 </body>
 
