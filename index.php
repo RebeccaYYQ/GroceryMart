@@ -47,8 +47,7 @@
             $searchQuery = $_POST['searchQuery'];
             $title = "Search results for '" . $searchQuery . "'";
             $query_string = "select * from as1db where product_name like '%$searchQuery%'";
-        }
-        else {
+        } else {
             $category = $title = 'Home';
             $query_string = "select * from as1db";
         }
@@ -72,9 +71,14 @@
                         Stock: {$row['in_stock']}</p>
                         <div class='flex'>
                             <button class='quantityBtn' type='button' onClick='itemGridCart(\"minus\", \"{$row['product_id']}\")'>-</button>
-                            <p class='quantityField' id='{$row['product_id']}Quantity'>0</p>
-                            <button class='quantityBtn' type='button' onClick='itemGridCart(\"plus\", \"{$row['product_id']}\")'>+</button>
-                        </div>
+                            <p class='quantityField' id='{$row['product_id']}Quantity'>0</p>";
+                //if the item is not in stock, show a button that is disabled
+                if ($row['in_stock'] == 0) {
+                    echo   "<button disabled class='quantityBtn' type='button' onClick='itemGridCart(\"plus\", \"{$row['product_id']}\")'>+</button>";
+                } else {
+                    echo   "<button class='quantityBtn' type='button' onClick='itemGridCart(\"plus\", \"{$row['product_id']}\")'>+</button>";
+                }
+                echo "</div>
                     </div>";
 
                 //updating the quantity field with values from localStorage. If null, set it to 0
