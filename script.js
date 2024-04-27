@@ -44,11 +44,11 @@ function clearCart() {
 
 //validate the email to also have a . in it
 function validEmail() {
-    var email = document.forms["deliveryForm"]["email"].value;
+    var email = document.getElementById("email").value;
 
     var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
-        alert("Please enter a valid email address");
+        alert("Email address should have a . after the @");
         return false;
     }
 }

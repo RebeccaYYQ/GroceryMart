@@ -60,7 +60,7 @@
     <main>
         <h2>Delivery Details</h2>
 
-        <form name="deliveryForm" action="deliveryConfirm.php" onsubmit="return validEmail()" method="post">
+        <form id="deliveryForm" class="flex" action="deliveryConfirm.php" onsubmit="return validEmail()" method="post">
             <label class= "formLabel" for="name">Name:</label>
             <input type="text" id="name" name="name" required><br>
 
@@ -89,7 +89,7 @@
                 <option value="NT">NT</option>
             </select><br>
 
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit Order" class="deliveryBtn">
         </form>
     </main>
 </body>
