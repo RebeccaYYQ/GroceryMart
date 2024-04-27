@@ -100,11 +100,9 @@
             <!-- total display plus the order/clear buttons -->
             <div id="cartTotal">
                 <p><b>Total:</b> $<span id="totalValue">0</span></p>
-                <input type="button" value="Clear Cart" onclick="clearCart()" class="cartButtons"></button><input type="button" value="Submit Order" class="cartButtons" id="orderBtn"></button>
+                <input type="button" value="Clear Cart" onclick="clearCart()" class="cartButtons"><input type="button" value="Submit Order" class="cartButtons" id="orderBtn" onclick="window.location.href = 'delivery.php'">
             </div>
         </section>
-
-
 
     </main>
 </body>
