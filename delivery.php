@@ -31,7 +31,7 @@
 
     <main>
         <h2>Delivery Details</h2>
-
+        <p>Please fill out the following form to have your order delivered to you. Order has not been submitted until this form is complete.</p>
         <form id="deliveryForm" class="flex" action="deliveryConfirm.php" onsubmit="return validEmail()" method="post">
             <label class="formLabel" for="name">Name:</label>
             <input type="text" id="name" name="name" required><br>
@@ -64,8 +64,8 @@
             <input type="submit" value="Submit Order" class="deliveryBtn">
 
             <!-- Send order details through a hidden field in the form -->
-            <input type="text" id="submitCartIds" name="submitCartIds" value="null">
-            <input type="text" id="submitCartQuantity" name="submitCartQuantity" value="null">
+            <input type="text" id="submitCartIds" name="submitCartIds" value="null" hidden>
+            <input type="text" id="submitCartQuantity" name="submitCartQuantity" value="null" hidden>
         </form>
     </main>
 

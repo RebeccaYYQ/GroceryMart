@@ -23,18 +23,47 @@
         </div>
     </header>
 
-    <?php
-        $submitCartIds = $_REQUEST['submitCartIds'];
-        $submitCartQuantity = $_REQUEST['submitCartQuantity'];
-
-        echo "id: " . $submitCartIds . " quant " . $submitCartQuantity;
-    ?>
-
     <main>
         <h2>Delivery Confirmation</h2>
-        <p>Thanks for ordering!<br>
-            An email with the order details will be sent to </p>
-        <p>Your order details are:</p>
+
+        <?php
+        $submitCartIds = $_REQUEST['submitCartIds'];
+        $submitCartQuantity = $_REQUEST['submitCartQuantity'];
+        $email = $_REQUEST['email'];
+        $name = $_REQUEST['name'];
+
+        //connect to DB
+        $conn = mysqli_connect("localhost", "root", "", "progintas1");
+        if (mysqli_connect_errno()) {
+            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+            exit;
+        }
+
+        $query_string = "select * from as1db where product_id in ($submitCartIds)";
+
+        echo "<p>Thanks for ordering $name!<br>
+        An email with the order details will be sent to $email</p>
+        <p>Your order details are:</p>";
+        
+        //show the DB results
+        $result = mysqli_query($conn, $query_string);
+        $num_rows = mysqli_num_rows($result);
+
+        //turn cartQuantity into an array
+        $quantArray = explode(",", $submitCartQuantity);
+
+        if (mysqli_num_rows($result) > 0) {
+            // output data of each row
+            $i = 0;
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<p><b>{$row['product_name']}</b><br>
+                        Quantity: $quantArray[$i]</p>";
+                $i++;                
+            }
+        }
+
+        mysqli_close($conn);
+        ?>
 
     </main>
 </body>
