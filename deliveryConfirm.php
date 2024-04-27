@@ -24,14 +24,13 @@
     </header>
 
     <main>
-        <h2>Delivery Confirmation</h2>
-
         <?php
         $submitCartIds = $_REQUEST['submitCartIds'];
         $submitCartQuantity = $_REQUEST['submitCartQuantity'];
         $email = $_REQUEST['email'];
         $name = $_REQUEST['name'];
 
+        echo $submitCartIds . " " . $submitCartQuantity;
         //connect to DB
         $conn = mysqli_connect("localhost", "root", "", "progintas1");
         if (mysqli_connect_errno()) {
@@ -41,29 +40,35 @@
 
         $query_string = "select * from as1db where product_id in ($submitCartIds)";
 
-        echo "<p>Thanks for ordering $name!<br>
+        echo "<h2>Delivery Confirmation</h2>
+        <p>Thanks for ordering $name!<br>
         An email with the order details will be sent to $email</p>
         <p>Your order details are:</p>";
-        
+
         //show the DB results
         $result = mysqli_query($conn, $query_string);
         $num_rows = mysqli_num_rows($result);
 
-        //turn cartQuantity into an array
+        //turn cartQuantity and id into arrays
         $quantArray = explode(",", $submitCartQuantity);
+        $idArray = explode(",", $submitCartIds);
 
         if (mysqli_num_rows($result) > 0) {
             // output data of each row
-            $i = 0;
             while ($row = mysqli_fetch_assoc($result)) {
+                //find the index for that item, so that the correct quantity can be retrieved
+                $index = array_search($row['product_id'], $idArray);
+
                 echo "<p><b>{$row['product_name']}</b><br>
-                        Quantity: $quantArray[$i]</p>";
-                $i++;                
+                        Quantity: $quantArray[$index]</p>";
             }
         }
 
         mysqli_close($conn);
         ?>
+
+        <!-- clear the cart after ordering -->
+        <!-- <script>clearCart();</script> -->
 
     </main>
 </body>
