@@ -30,7 +30,6 @@
         $email = $_REQUEST['email'];
         $name = $_REQUEST['name'];
 
-        echo $submitCartIds . " " . $submitCartQuantity;
         //connect to DB
         $conn = mysqli_connect("localhost", "root", "", "progintas1");
         if (mysqli_connect_errno()) {
@@ -40,11 +39,6 @@
 
         $query_string = "select * from as1db where product_id in ($submitCartIds)";
 
-        echo "<h2>Delivery Confirmation</h2>
-        <p>Thanks for ordering $name!<br>
-        An email with the order details will be sent to $email</p>
-        <p>Your order details are:</p>";
-
         //show the DB results
         $result = mysqli_query($conn, $query_string);
         $num_rows = mysqli_num_rows($result);
@@ -53,16 +47,39 @@
         $quantArray = explode(",", $submitCartQuantity);
         $idArray = explode(",", $submitCartIds);
 
+        //a string for the results
+        $receiptString = "";
+
         if (mysqli_num_rows($result) > 0) {
             // output data of each row
             while ($row = mysqli_fetch_assoc($result)) {
+
                 //find the index for that item, so that the correct quantity can be retrieved
                 $index = array_search($row['product_id'], $idArray);
 
-                echo "<p><b>{$row['product_name']}</b><br>
-                        Quantity: $quantArray[$index]</p>";
+                //confirm that the quantity ordered is not above the stock amount
+                if ($quantArray[$index] > $row['in_stock']) {
+                    echo "<h2>Cart Error</h2>
+                        <p>The amount of {$row['product_name']} in stock is {$row['in_stock']}. You have ordered {$quantArray[$index]}.</p>
+                        <p>Please return to the shopping cart to fix this.<br>
+                        Apologies for the lack of stock, and thank you.</p>
+                        <input type='button' value='Return to Cart' class='cartButtons' onclick='window.location.href = \"cart.php\"'>";
+                    exit;
+                }
+                //if the amount ordered is fine
+                else {
+                    $receiptString .= "<p><b>{$row['product_name']}</b><br>
+                    Quantity: $quantArray[$index]</p>";
+                }
             }
         }
+
+        //print the results. If the user has no mistakes, it will go here
+        echo "<h2>Delivery Confirmation</h2>
+        <p>Thanks for ordering $name!<br>
+        An email with the order details will be sent to $email</p>
+        <p>Your order details are:</p>";
+        echo $receiptString;
 
         mysqli_close($conn);
         ?>
