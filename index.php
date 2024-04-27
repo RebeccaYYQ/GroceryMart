@@ -16,8 +16,8 @@
             <h1>Grocery Mart</h1>
         </a>
         <div class="align-right flex">
-            <form method="POST" action="search.php" class="flex" id="searchBar">
-                <input type="text" id="search" name="query" placeholder="Search items" size="47">
+            <form method="POST" action="index.php" class="flex" id="searchBar">
+                <input type="text" id="search" name="searchQuery" placeholder="Search items" size="47">
                 <button id="searchButton" type="submit" class="align-right"><span class="material-symbols-outlined">search</span></button>
             </form>
             <a href="cart.php" class="flex">
@@ -36,20 +36,24 @@
             exit;
         }
 
-        //if category is set, then use it. Else if subCategory is set, use that. Else use home (i.e. when page first opens)
+        //if category is set, then use it. Else if subCategory is set, use that. Else if its a search, use that query. Else use home (i.e. when page first opens)
         if (isset($_POST['category']) && $_POST['category'] != 'Home') {
-            $category = $_POST['category'];
+            $category = $title = $_POST['category'];
             $query_string = "select * from as1db where product_category = '$category'";
         } else if (isset($_POST['subCategory'])) {
-            $subCategory = $_POST['subCategory'];
+            $subCategory = $title = $_POST['subCategory'];
             $query_string = "select * from as1db where product_subcategory = '$subCategory'";
-        } else {
-            $category = 'Home';
+        } else if (isset($_POST['searchQuery'])) {
+            $searchQuery = $_POST['searchQuery'];
+            $title = "Search results for '" . $searchQuery . "'";
+            $query_string = "select * from as1db where product_name like '%$searchQuery%'";
+        }
+        else {
+            $category = $title = 'Home';
             $query_string = "select * from as1db";
         }
 
         //set the page title and cart quantity
-        $title = isset($category) ? $category : $subCategory;
         echo "<h2>$title</h2>
                 <section class='itemGrid flex'>";
 
