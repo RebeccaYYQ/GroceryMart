@@ -22,8 +22,20 @@
             </a>
         </div>
     </header>
+
+    <?php
+        $submitCartIds = $_REQUEST['submitCartIds'];
+        $submitCartQuantity = $_REQUEST['submitCartQuantity'];
+
+        echo "id: " . $submitCartIds . " quant " . $submitCartQuantity;
+    ?>
+
     <main>
         <h2>Delivery Confirmation</h2>
+        <p>Thanks for ordering!<br>
+            An email with the order details will be sent to </p>
+        <p>Your order details are:</p>
+
     </main>
 </body>
 

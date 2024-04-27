@@ -24,44 +24,16 @@
         </div>
     </header>
 
-    <!-- update the cart -->
     <script>
         //update the Cart quantity number
         updateCartQuantity();
-
-        // // Retrieve the customer's cart productIds from localStorage
-        // var cartProductIds = [];
-        // //Variable to store each item's price
-        // var cartProductPrice = [];
-
-        // //retrieve data from localStorage 
-        // for (let i = 0; i < localStorage.length; i++) {
-        //     key = localStorage.key(i);
-        //     value = Number(localStorage.getItem(key));
-
-        //     //if value is greater than 0, save it to the list
-        //     value > 0 ? cartProductIds.push(key) : value;
-        // };
-
-        // // Send value to server using AJAX
-        // var xhr = new XMLHttpRequest();
-        // xhr.open("POST", "cartDisplay.php", true);
-        // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        // xhr.send("cartProductIds=" + cartProductIds);
-
-        // // AJAX request completed successfully
-        // xhr.onreadystatechange = function() {
-        //     if (xhr.readyState === 4 && xhr.status === 200) {
-
-        //     }
-        // } 
     </script>
 
     <main>
         <h2>Delivery Details</h2>
 
         <form id="deliveryForm" class="flex" action="deliveryConfirm.php" onsubmit="return validEmail()" method="post">
-            <label class= "formLabel" for="name">Name:</label>
+            <label class="formLabel" for="name">Name:</label>
             <input type="text" id="name" name="name" required><br>
 
             <label for="mobile">Mobile Number:</label>
@@ -90,8 +62,35 @@
             </select><br>
 
             <input type="submit" value="Submit Order" class="deliveryBtn">
+
+            <!-- Send order details through a hidden field in the form -->
+            <input type="text" id="submitCartIds" name="submitCartIds" value="null">
+            <input type="text" id="submitCartQuantity" name="submitCartQuantity" value="null">
         </form>
     </main>
+
+    <script>
+        // Retrieve the customer's cart productIds from localStorage
+        var cartProductIds = [];
+        //Variable to store each item's quantity
+        var cartProductQuantity = [];
+
+        //retrieve data from localStorage 
+        for (let i = 0; i < localStorage.length; i++) {
+            key = localStorage.key(i);
+            value = Number(localStorage.getItem(key));
+
+            //if value is greater than 0, save it to the list
+            if (value > 0) {
+                cartProductIds.push(key);
+                cartProductQuantity.push(value);
+            }
+        };
+
+        //send this data to the form submission
+        document.getElementById("submitCartIds").value = cartProductIds;
+        document.getElementById("submitCartQuantity").value = cartProductQuantity;
+    </script>
 </body>
 
 </html>
