@@ -1,0 +1,29 @@
+﻿product_id,product_name,unit_price,unit_quantity,in_stock,product_category,product_subcategory
+1001,Instant Coffee,2.89,200 gram,500,Beverages,Coffee
+1002,Instant Coffee,5.1,500 gram,500,Beverages,Coffee
+1003,Orange Juice,5.8,1 Litre,200,Beverages,Juice
+1004,Tropical Punch Juice Box,8,Pack 6,100,Beverages,Juice
+1005,Earl Grey Tea Bags,2.49,Pack 25,1200,Beverages,Tea
+1006,Earl Grey Tea Bags,7.25,Pack 100,1200,Beverages,Tea
+1007,Black Tea Bags,13,Pack 200,800,Beverages,Tea
+1008,Navel Oranges,3.99,Bag 20,200,Fresh,Fruit
+1009,Bananas,1.49,Kilo,400,Fresh,Fruit
+1010,Grapes,3.5,Kilo,200,Fresh,Fruit
+1011,Tomato,1,Each,500,Fresh,Vegetable
+1012,Broccoli,2,Each,500,Fresh,Vegetable
+1013,Fish Fingers,2.55,500 gram,1500,Frozen,Frozen Meat
+1014,Fish Fingers,5,1000 gram,750,Frozen,Frozen Meat
+1015,Hamburger Patties,2.35,Pack 10,1200,Frozen,Frozen Meat
+1016,Tub Ice Cream,1.8,1 Litre,800,Frozen,Ice Cream
+1017,Tub Ice Cream,3.4,2 Litre,1200,Frozen,Ice Cream
+1018,Matcha Ice Cream,20,1 Litre,1,Frozen,Ice Cream
+1019,Bath Soap,2.6,Pack 6,500,Household,Cleaning
+1020,Garbage Bags Large,5,Pack 50,300,Household,Cleaning
+1021,Laundry Bleach,3.55,2 Litre Bottle,500,Household,Cleaning
+1022,Panadol,3,Pack 24,2000,Household,Medicine
+1023,Panadol,5.5,Bottle 50,1000,Household,Medicine
+1024,Cat Food,2,500g tin,200,Pet Food,Cat
+1025,Dry Dog Food,5.95,5 kg Pack,400,Pet Food,Dog
+1026,Dry Dog Food,1.95,1 kg Pack,400,Pet Food,Dog
+1027,Bird Food,3.99,500g packet,200,Pet Food,Small Animals
+1028,Fish Food,3,500g packet,200,Pet Food,Small Animals
