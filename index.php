@@ -20,13 +20,13 @@
                 <input type="text" id="search" name="searchQuery" placeholder="Search items" size="47">
                 <button id="searchButton" type="submit" class="align-right"><span class="material-symbols-outlined">search</span></button>
             </form>
-            <a href="cart.php" class="flex">
+            <a href="cart.html" class="flex">
                 <span class="material-symbols-outlined md-60">shopping_cart</span>
                 <span id="cartQuantity">0</span>
             </a>
         </div>
     </header>
-    <?php require 'nav.php'; ?>
+    <?php require 'nav.html'; ?>
 
     <main>
         <?php

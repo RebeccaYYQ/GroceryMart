@@ -20,7 +20,7 @@ function itemGridCart(operator, productId) {
     updateCartQuantity();
 
     //if the page is the shopping cart and quantity is now 0, refresh the page
-    if (location.pathname == "/ProgIntAs1/cart.php" && quantityInt == 0) {
+    if (location.pathname == "/ProgIntAs1/cart.html" && quantityInt == 0) {
         location.reload();
     }
 };
@@ -40,7 +40,7 @@ function updateCartQuantity() {
 function clearCart() {
     localStorage.clear();
     //if the page is the shopping cart refresh the page
-    if (location.pathname == "/ProgIntAs1/cart.php") {
+    if (location.pathname == "/ProgIntAs1/cart.html") {
         location.reload();
     }
 }

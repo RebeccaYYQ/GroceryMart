@@ -16,7 +16,7 @@
             <h1>Grocery Mart</h1>
         </a>
         <div class="align-right flex">
-            <a href="cart.php" class="flex">
+            <a href="cart.html" class="flex">
                 <span class="material-symbols-outlined md-60">shopping_cart</span>
                 <span id="cartQuantity">0</span>
             </a>
@@ -63,7 +63,7 @@
                         <p>The amount of {$row['product_name']} in stock is {$row['in_stock']}. You have ordered {$quantArray[$index]}.</p>
                         <p>Please return to the shopping cart to fix this.<br>
                         Apologies for the lack of stock, and thank you.</p>
-                        <input type='button' value='Return to Cart' class='cartButtons' onclick='window.location.href = \"cart.php\"'>";
+                        <input type='button' value='Return to Cart' class='cartButtons' onclick='window.location.href = \"cart.html\"'>";
                     exit;
                 }
                 //if the amount ordered is fine
